@@ -6,7 +6,7 @@ from config import google_api_key
 from models import Subscription, Message
 import requests
 
-gcm_url = 'https://android.googleapis.com/gcm/send'
+gcm_url = 'https://fcm.googleapis.com/fcm/send'
 
 
 class Gcm(db.Model):
@@ -57,7 +57,7 @@ class Gcm(db.Model):
 
     @staticmethod
     def gcm_send(ids, data):
-        url = 'https://android.googleapis.com/gcm/send'
+        url = 'https://fcm.googleapis.com/fcm/send'
         headers = dict(Authorization='key={}'.format(google_api_key))
         data = dict(registration_ids=ids, data=data)
 
